@@ -1,0 +1,15 @@
+<?php
+echo $this->doctype();
+include('../application/layouts/header.phtml');
+
+$route = Zend_Controller_Front::getInstance()->getRequest()->controller;
+if($route === 'login') {
+	# only display login formular
+    echo $this->layout()->content;
+} else {
+	# when other controller show navigation with body
+    include('../application/layouts/nav.phtml');
+	# nav.phtml also contains "echo $this->layout()->content;"
+}
+include('../application/layouts/footer.phtml');
+?>

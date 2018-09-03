@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Application Test Suite" tests="2" assertions="1" failures="0" errors="0" time="0.044500">
+    <testsuite name="IndexControllerTest" file="C:\xampp\htdocs\tennis-management\tests2\application\controllers\IndexControllerTest.php" tests="2" assertions="1" failures="0" errors="0" time="0.044500">
+      <testcase name="test_is_login_page" class="IndexControllerTest" file="C:\xampp\htdocs\tennis-management\tests2\application\controllers\IndexControllerTest.php" line="11" assertions="1" time="0.041500"/>
+      <testcase name="test_login" class="IndexControllerTest" file="C:\xampp\htdocs\tennis-management\tests2\application\controllers\IndexControllerTest.php" line="52" assertions="0" time="0.003000"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

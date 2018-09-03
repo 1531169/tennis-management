@@ -1,0 +1,84 @@
+<br/>
+<div class="row">
+	<p>
+	Aktuell werden alle angezeigt, da noch keine Teams in der Datenbank beschrieben sind.
+	</p>
+	<div class="panel panel-default">
+		<div class="panel-heading">Team</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Vorname</th>
+							<th>Nachname</th>
+							<th>Geschlecht</th>
+							<th>Rolle</th>
+							<th>Status</th>
+							<th>E-Mail</th>
+							<th>2. E-Mail</th>
+							<th>Organisation</th>
+							<th>Aktion</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($this->users as $user): ?>
+						<tr>
+							<td><?php echo $this->escape($user->user_id) ?></td>
+							<td><?php echo $this->escape($user->givenname) ?></td>
+							<td><?php echo $this->escape($user->surname) ?></td>
+							<td><?php echo $this->escape($user->gender) ?></td>							<td>
+							<?php
+        switch ($user->role) {
+            case 'coach':
+                echo 'Coach';
+                break;
+            case 'player':
+                echo 'Spieler';
+                break;
+            case 'admin':
+                echo 'Admin';
+                break;
+        }
+        ?>
+							</td>
+							<td>
+							<?php
+        switch ($user->state) {
+            case 'active':
+                echo 'Aktiv';
+                break;
+            case 'inactive':
+                echo 'Inaktiv';
+                break;
+            case 'disabled':
+                echo 'Gesperrt';
+                break;
+            case 'deleted':
+                echo 'Gel&ouml;scht';
+                break;
+        }
+        ?>
+							</td>
+							<td><?php echo $this->escape($user->email) ?></td>
+							<td><?php echo $this->escape($user->email2) ?></td>
+
+							<td><?php echo $this->escape($user->organization) ?></td>
+							<td>
+							<a href="<?php echo $this->url(array('controller'=>'useroverview','action' => 'view', 'userid' => $user->user_id), 'default', true) ?>"><button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-list"></i></button></a>
+							<a href="<?php echo $this->url(array('controller'=>'useroverview','action' => 'edit', 'userid' => $user->user_id), 'default', true) ?>"><button type="button" class="btn btn-warning btn-circle"><i class="fa fa-edit"></i></button></a>
+							<a href="<?php echo $this->url(array('controller'=>'useroverview','action' => 'delete', 'userid' => $user->user_id), 'default', true) ?>"><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button></a>
+							</td>
+						</tr>
+						<?php endforeach ?>
+					</tbody>
+				</table>
+			</div>
+			<!-- /.table-responsive -->
+		</div>
+		<!-- /.panel-body -->
+	</div>
+	<!-- /.panel -->
+</div>

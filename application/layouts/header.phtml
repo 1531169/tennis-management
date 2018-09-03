@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Freudenberg Tennis-Management</title>
+	<?php
+		$bootstrap			= $this->baseUrl('vendor/bootstrap/css/bootstrap.min.css');
+		$metisMenu		= $this->baseUrl('vendor/metisMenu/metisMenu.min.css');
+		$sb_admin		= $this->baseUrl('dist/css/sb-admin-2.css');
+		$morris				= $this->baseUrl('vendor/morrisjs/morris.css');
+		$fontAwesome	= $this->baseUrl('vendor/font-awesome/css/font-awesome.min.css');
+		echo $this->headLink()->appendStylesheet($bootstrap);
+		echo $this->headLink()->appendStylesheet($metisMenu);
+		echo $this->headLink()->appendStylesheet($sb_admin);
+		echo $this->headLink()->appendStylesheet($morris);
+		echo $this->headLink()->appendStylesheet($fontAwesome);
+	?>
+	<!-- jQuery Code executes on Date Format option ----->
+	<!-- Bootstrap Core CSS
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+	<!-- MetisMenu CSS
+	<link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">-->
+	<!-- Custom CSS 
+	<link href="dist/css/sb-admin-2.css" rel="stylesheet">-->
+	<!-- Morris Charts CSS 
+	<link href="vendor/morrisjs/morris.css" rel="stylesheet">-->
+	<!-- Custom Fonts 
+	<link href="vendor/font-awesome/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css">-->
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<?php
+		$jQuery		= $this->baseUrl('vendor/jquery/jquery.min.js');
+		$bootstrap		= $this->baseUrl('vendor/bootstrap/js/bootstrap.min.js');
+		$metisMenu	= $this->baseUrl('vendor/metisMenu/metisMenu.min.js');
+		$raphael		= $this->baseUrl('vendor/raphael/raphael.min.js');
+		$morris			= $this->baseUrl('vendor/morrisjs/morris.min.js');
+		$morrisData	= $this->baseUrl('data/morris-data.js');
+		$sb_admin	= $this->baseUrl('dist/js/sb-admin-2.js');
+	?>
+	<!-- jQuery -->
+	<script src="<?php echo $jQuery; ?>"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="<?php echo $bootstrap; ?>"></script>
+	<!-- Metis Menu Plugin JavaScript -->
+	<script src="<?php echo $metisMenu; ?>"></script>
+	<!-- Morris Charts JavaScript -->
+	<script src="<?php echo $raphael; ?>"></script>
+	<script src="<?php echo $morris; ?>"></script>
+	<script src="<?php echo $morrisData; ?>"></script>
+	<!-- Custom Theme JavaScript -->
+	<script src="<?php echo $sb_admin; ?>"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>

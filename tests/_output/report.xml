@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="acceptance" tests="1" assertions="1" failures="0" errors="0" time="0.377500">
+    <testcase name="Signin" file="C:\xampp\htdocs\tennis-management\tests\acceptance\SigninCept.php" feature="login to website" assertions="1" time="0.377500"/>
+  </testsuite>
+  <testsuite name="actionsView" tests="14" assertions="14" failures="0" errors="0" time="0.087000">
+    <testcase name="testBootstrapIsAvailable" class="IndexTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\IndexTest.php" assertions="2" time="0.021500"/>
+    <testcase name="testIndexActionError" class="IndexTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\IndexTest.php" assertions="0" time="0.024500"/>
+    <testcase name="testBootstrapIsAvailable" class="LoginTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\LoginTest.php" assertions="2" time="0.001000"/>
+    <testcase name="testIndexActionError" class="LoginTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\LoginTest.php" assertions="0" time="0.012000"/>
+    <testcase name="testBootstrapIsAvailable" class="ProfilTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\ProfilTest.php" assertions="2" time="0.001500"/>
+    <testcase name="testIndexActionError" class="ProfilTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\ProfilTest.php" assertions="0" time="0.002500"/>
+    <testcase name="testBootstrapIsAvailable" class="SaisonTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\SaisonTest.php" assertions="2" time="0.001000"/>
+    <testcase name="testIndexActionError" class="SaisonTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\SaisonTest.php" assertions="0" time="0.002500"/>
+    <testcase name="testBootstrapIsAvailable" class="SettingsTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\SettingsTest.php" assertions="2" time="0.001500"/>
+    <testcase name="testIndexActionError" class="SettingsTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\SettingsTest.php" assertions="0" time="0.012000"/>
+    <testcase name="testBootstrapIsAvailable" class="TeamTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\TeamTest.php" assertions="2" time="0.001000"/>
+    <testcase name="testIndexActionError" class="TeamTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\TeamTest.php" assertions="0" time="0.002500"/>
+    <testcase name="testBootstrapIsAvailable" class="UseroverviewTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\UseroverviewTest.php" assertions="2" time="0.001000"/>
+    <testcase name="testIndexActionError" class="UseroverviewTest" file="C:\xampp\htdocs\tennis-management\tests\actionsView\UseroverviewTest.php" assertions="0" time="0.002500"/>
+  </testsuite>
+  <testsuite name="unit" tests="2" assertions="2" failures="0" errors="0" time="0.004500">
+    <testcase name="testBootstrapIsAvailable" class="LoginControllerTest" file="C:\xampp\htdocs\tennis-management\tests\unit\LoginControllerTest.php" assertions="2" time="0.001500"/>
+    <testcase name="testIndexActionError" class="LoginControllerTest" file="C:\xampp\htdocs\tennis-management\tests\unit\LoginControllerTest.php" assertions="0" time="0.003000"/>
+  </testsuite>
+  <testsuite name="zendView" tests="2" assertions="2" failures="0" errors="0" time="0.013000">
+    <testcase name="testBootstrapIsAvailable" class="ZendView_LoginController_Test" file="C:\xampp\htdocs\tennis-management\tests\zendView\ZendView_LoginController_Test.php" assertions="2" time="0.001000"/>
+    <testcase name="testIndexActionError" class="ZendView_LoginController_Test" file="C:\xampp\htdocs\tennis-management\tests\zendView\ZendView_LoginController_Test.php" assertions="0" time="0.012000"/>
+  </testsuite>
+</testsuites>

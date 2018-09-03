@@ -1,0 +1,4 @@
+TAP version 13
+ok 1 - IndexControllerTest::test_is_login_page
+ok 2 - IndexControllerTest::test_login
+1..2

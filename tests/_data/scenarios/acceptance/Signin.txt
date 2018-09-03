@@ -1,0 +1,10 @@
+I WANT TO LOGIN TO WEBSITE
+
+I am 'player' 
+I look forward to 'access website features for logged-in players' 
+I am on page '/login' 
+I fill field 'username'," 'c.reinhard' 
+I fill field 'password'," 'fisch' 
+I click 'Login' 
+I see 'Dashboard'," '.row'
+

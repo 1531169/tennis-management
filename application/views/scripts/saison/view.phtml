@@ -1,0 +1,85 @@
+<br />
+<div class="row">
+	<div class="panel panel-default">
+		<?php
+		    if($this->plan != null) {
+		?>
+		<div class="panel-heading">
+			Saisonplan <?php echo $this->plan->getSaison(); ?>
+		</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+			<div class="table-responsive" style="overflow: hidden">
+				<div class="form-group row">
+					<div class="col-sm-2">
+						<label class="col-form-label"
+							style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Spiel-Nr.</label>
+					</div>
+					<div class="col-sm-2">
+						<label class="col-form-label"
+							style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Datum</label>
+					</div>
+					<div class="col-sm-3">
+						<label class="col-form-label"
+							style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Heim</label>
+					</div>
+					<div class="col-sm-2"></div>
+					<div class="col-sm-3">
+						<label class="col-form-label"
+							style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Gast</label>
+					</div>
+				</div>
+				<?php
+				    $counter = 1;
+				    foreach($this->planDays as $planDay) {
+				?>
+				<div class="form-group row">
+					<div class="col-sm-2"><?php echo $counter++; ?></div>
+					<div class="col-sm-2">
+						<?php echo $planDay->getSpieldatum(); ?>
+					</div>
+					<div class="col-sm-3">
+						<?php 
+						    echo $planDay->getTeam1() ? $planDay->getTeam1() : "FREI";
+						?>
+					</div>
+					<div class="col-sm-2 text-center">
+						<label class="col-form-label"
+							style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">vs</label>
+					</div>
+					<div class="col-sm-3">
+						<?php 
+						    echo $planDay->getTeam2() ? $planDay->getTeam2() : "FREI";
+						?>
+					</div>
+				</div>
+				<?php 
+				    }
+				?>
+				<div class="alert alert-danger" <?php echo $this->dangerMsgState; ?>>
+					<?php echo $this->dangerMsg; ?>
+				</div>
+			</div>
+			<!-- /.table-responsive -->
+		</div>
+		<!-- /.panel-body -->
+		<?php
+		    // END plan exist
+		    } else {
+		?>
+		<div class="panel-heading">Saisonplan</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+			<div class="table-responsive" style="overflow: hidden">
+				<div class="alert alert-danger" <?php echo $this->dangerMsgState; ?>>
+					<?php echo $this->dangerMsg; ?>
+				</div>
+			</div>
+			<!-- /.table-responsive -->
+		</div>
+		<?php
+		    } // END else block 
+		?>
+	</div>
+	<!-- /.panel -->
+</div>

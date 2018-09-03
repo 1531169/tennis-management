@@ -1,0 +1,6 @@
+actor: ZendViewTester
+modules:
+    enabled:
+        - \Helper\ZendView
+        - Asserts
+        - ZF1

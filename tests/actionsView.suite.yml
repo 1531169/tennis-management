@@ -1,0 +1,6 @@
+actor: ActionsViewTester
+modules:
+    enabled:
+        - \Helper\ActionsView
+        - Asserts
+        - ZF1
