@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
 	<buildpathentry kind="src" path="application"/>
-	<buildpathentry kind="src" path="library/Utils/Authentication"/>
-	<buildpathentry kind="src" path="library/Zend"/>
-	<buildpathentry kind="src" path="public"/>
+	<buildpathentry kind="src" path="library/Utils"/>
 	<buildpathentry kind="src" path="tests"/>
+	<buildpathentry kind="src" path="library/Zend"/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+	<buildpathentry kind="src" path="public"/>
 </buildpath>
