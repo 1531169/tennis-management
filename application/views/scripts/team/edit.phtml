@@ -1,0 +1,153 @@
+<br />
+<div class="row">
+	<?php
+	   if($this->form) {
+	?>
+	<div class="panel panel-default">
+		<div class="panel-heading">Benutzer bearbeiten</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+			<div class="table-responsive" style="overflow: hidden">
+				<form action="<?php echo $this->form->getAction(); ?>"
+					method="<?php echo $this->form->getMethod(); ?>">
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<label class="col-form-label"
+								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Benutzername</label>
+						</div>
+						<div class="col-sm-12">
+							<?php echo $this->form->getElement('username')->removeDecorator('label'); ?>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<label class="col-form-label"
+								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Vorname</label>
+						</div>
+						<div class="col-sm-12">
+							<?php echo $this->form->getElement('givenname')->removeDecorator('label'); ?>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<label class="col-form-label"
+								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Nachname</label>
+						</div>
+						<div class="col-sm-12">
+							<?php echo $this->form->getElement('surname')->removeDecorator('label'); ?>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<label class="col-form-label"
+								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Geschlecht</label>
+						</div>
+						<div class="col-sm-12">
+							<?php echo $this->form->getElement('gender')->removeDecorator('label'); ?>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<label class="col-form-label"
+								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Passwort</label>
+						</div>
+						<div class="col-sm-12">
+							<?php echo $this->form->getElement('password')->removeDecorator('label'); ?>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<label class="col-form-label"
+								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">E-Mail</label>
+						</div>
+						<div class="col-sm-12">
+							<?php echo $this->form->getElement('email')->removeDecorator('label'); ?>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<label class="col-form-label"
+								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">E-Mail (optional)</label>
+						</div>
+						<div class="col-sm-12">
+							<?php echo $this->form->getElement('email2')->removeDecorator('label'); ?>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<label class="col-form-label"
+								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Organisation</label>
+						</div>
+						<div class="col-sm-12">
+							<?php echo $this->form->getElement('organization')->removeDecorator('label'); ?>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<label class="col-form-label"
+								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Rolle</label>
+						</div>
+						<div class="col-sm-12">
+							<?php echo $this->form->getElement('role')->removeDecorator('label'); ?>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-12">
+							<label class="col-form-label"
+								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Status</label>
+						</div>
+						<div class="col-sm-12">
+							<?php echo $this->form->getElement('state')->removeDecorator('label'); ?>
+						</div>
+					</div>
+        			<div class="form-group row">
+						<div class="col-sm-3">
+							<div style="line-height:20px">&nbsp;</div><!-- only for positioning -->
+							<a style="text-decoration:none;" href="<?php echo $this->url(array('controller'=>'team', 'action' => 'index'), 'default', true) ?>">
+								<button type="button" class="btn btn-lg btn-success btn-block">Zur&uuml;ck</button>
+							</a>
+							<?php
+							     #$this->_redirect($this->getRequest()->getServer('HTTP_REFERER'));
+							?>
+							<!-- TODO: ABBRECHEN-Button einfügen -->
+						</div>
+						<div class="col-sm-6"></div>
+						<div class="col-sm-3">
+							<?php echo $this->form->getElement('submit'); ?>
+						</div>
+					</div>
+				</form>
+				<div class="alert alert-danger" <?php echo $this->dangerMsgState; ?>>
+					<?php echo $this->dangerMsg; ?>
+				</div>
+			</div>
+			<!-- /.table-responsive -->
+		</div>
+		<!-- /.panel-body -->
+	</div>
+	<!-- /.panel -->
+	<?php
+	   } // ENDE:  !$this->isFinishToSave
+	   else {
+	?>
+	<div class="panel panel-default">
+		<div class="panel-heading">Saisonplan anlegen</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+			<div class="table-responsive" style="overflow: hidden">
+				<div class="alert alert-success" <?php echo $this->successMsgState; ?>>
+					<?php echo $this->successMsg; ?>
+				</div>
+				<div class="alert alert-danger" <?php echo $this->dangerMsgState; ?>>
+					<?php echo $this->dangerMsg; ?>
+				</div>
+			</div>
+			<!-- /.table-responsive -->
+		</div>
+		<!-- /.panel-body -->
+	</div>
+	<!-- /.panel -->
+	<?php
+	   }
+	?>
+</div>
