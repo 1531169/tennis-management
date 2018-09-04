@@ -18,7 +18,7 @@ class UseroverviewController extends Zend_Controller_Action
 
     public function checkAccess()
     {
-        if ($this->_role == 'player' || $this->_role == 'coach') {
+        if ($this->_role == Utils_User_Role::PLAYER || $this->_role == Utils_User_Role::COACH) {
             $this->redirect('index');
         }
     }
@@ -50,15 +50,10 @@ class UseroverviewController extends Zend_Controller_Action
     {
         $request = $this->getRequest();
         $user_id = $request->getParam('userid');
-        $user = new Application_Model_User();
-        $mapper = new Application_Model_Usermapper();
+        $user    = new Application_Model_User();
+        $mapper  = new Application_Model_Usermapper();
         $mapper->find($user_id, $user);
-        echo $user->getUsername();
-        /*
-         * echo "<pre>";
-         * var_dump($this->getRequest());
-         * echo "</pre>";
-         */
+        $this->view->user = $user;
     }
 
     public function editAction()

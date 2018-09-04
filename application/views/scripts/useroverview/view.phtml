@@ -1,0 +1,62 @@
+<br/>
+<div class="row">
+	<div class="panel panel-default">
+		<div class="panel-heading">Spieler</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<tbody>
+						<tr>
+							<td>#</td>
+							<td><?php echo $this->escape($this->user->user_id) ?></td>
+						</tr>
+						<tr>
+							<td>Vorname</td>
+							<td><?php echo $this->escape($this->user->givenname) ?></td>
+						</tr>
+						<tr>
+							<td>Nachname</td>
+							<td><?php echo $this->escape($this->user->surname) ?></td>
+						</tr>
+						<tr>
+							<td>Geschlecht</td>
+							<td><?php echo $this->escape($this->user->gender) ?></td>
+						</tr>
+						<tr>
+							<td>Rolle</td>
+							<td><?php echo Utils_User_Role::toString($this->user->role) ?></td>
+						</tr>
+						<tr>
+							<td>Status</td>
+							<td><?php echo Utils_User_State::toString($this->user->state) ?></td>
+						</tr>
+						<tr>
+							<td>E-Mail</td>
+							<td><?php echo $this->escape($this->user->email) ?></td>
+						</tr>
+						<tr>
+							<td>2. E-Mail</td>
+							<td><?php echo $this->escape($this->user->email2) ?></td>
+						</tr>
+						<tr>
+							<td>Organisation</td>
+							<td><?php echo $this->escape($this->user->organization) ?></td>
+						</tr>
+						<tr>
+							<td>Organisation</td>
+							<td><?php echo $this->escape($this->user->organization) ?></td>
+						</tr>
+						<tr>
+							<td><a href="<?php echo $this->url(array('controller'=>'useroverview', 'action' => 'index'), 'default', true) ?>"><button type="button" class="btn btn-primary"><i class="fa">Zur&uuml;ck</i></button></a></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- /.table-responsive -->
+		</div>
+		<!-- /.panel-body -->
+	</div>
+	<!-- /.panel -->
+</div>
