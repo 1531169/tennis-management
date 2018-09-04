@@ -60,10 +60,12 @@ class UseroverviewController extends Zend_Controller_Action
     {
         $request = $this->getRequest();
         $user_id = $request->getParam('userid');
-        $user = new Application_Model_User();
-        $mapper = new Application_Model_Usermapper();
+        $user    = new Application_Model_User();
+        $mapper  = new Application_Model_Usermapper();
         $mapper->find($user_id, $user);
-        echo $user->getUsername();
+        $form = new Application_Form_EditUser($user);
+        $form->setAction('edit');
+        $this->view->form = $form;
     }
 
     public function deleteAction()
@@ -73,6 +75,7 @@ class UseroverviewController extends Zend_Controller_Action
         $user = new Application_Model_User();
         $mapper = new Application_Model_Usermapper();
         $mapper->find($user_id, $user);
+        $this->view->user = $user;
         echo $user->getUsername();
     }
 }
