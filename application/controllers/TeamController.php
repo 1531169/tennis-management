@@ -34,6 +34,16 @@ class TeamController extends Zend_Controller_Action
         
         $this->view->form = $form;
     }
+    
+    public function viewAction()
+    {
+        $request = $this->getRequest();
+        $user_id = $request->getParam('userid');
+        $user    = new Application_Model_User();
+        $mapper  = new Application_Model_Usermapper();
+        $mapper->find($user_id, $user);
+        $this->view->user = $user;
+    }
 }
 
 
