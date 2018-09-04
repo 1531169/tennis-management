@@ -15,26 +15,35 @@ class Utils_User_State
     private static $active   = "Aktiv";
     private static $inactive = "Inaktiv";
     private static $disabled = "Gesperrt";
-    private static $deleted  = "Gel&ouml;scht";
+    private static $deleted  = "Gelöscht";
     private static $notDef   = "Undefiniert";
     
     public static function toString($role) {
         switch ($role) {
             case self::ACTIVE:
-                return self::$active;
+                return utf8_encode(self::$active);
                 break;
             case self::INACTIVE:
-                return self::$inactive;
+                return utf8_encode(self::$inactive);
                 break;
             case self::DISABLED:
-                return self::$disabled;
+                return utf8_encode(self::$disabled);
                 break;
             case self::DELETED:
-                return self::$deleted;
+                return utf8_encode(self::$deleted);
                 break;
             default:
-                return self::$notDef;
+                return utf8_encode(self::$notDef);
         }
+    }
+    
+    public static function getDropdownOptionsArray() {
+        return array(
+            self::ACTIVE   => utf8_encode(self::$active),
+            self::INACTIVE => utf8_encode(self::$inactive),
+            self::DISABLED => utf8_encode(self::$disabled),
+            self::DELETED  => utf8_encode(self::$deleted)
+        );
     }
 }
 

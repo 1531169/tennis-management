@@ -29,5 +29,13 @@ class Utils_User_Role
                 return self::$player;
         }
     }
+    
+    public static function getDropdownOptionsArray() {
+        return array(
+            self::ADMIN  => self::$admin,
+            self::COACH  => self::$coach,
+            self::PLAYER => self::$player
+        );
+    }
 }
 
