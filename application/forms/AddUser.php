@@ -86,13 +86,25 @@ class Application_Form_AddUser extends Zend_Form
             'class'       => 'form-control'
         ));
         
+        $this->addElement('text', 'organization', array(
+            'list'        => 'organizations',
+            'placeholder' => 'Organisation',
+            'label'       => 'Organisation',
+            'required'    => false,
+            'filters'     => array(
+                'StringTrim'
+            ),
+            'class'       => 'form-control'
+        ));
+        /*
+         * old version (Problem: no adding from new organizations)
         // add organiztation select
         $this->addElement('select', 'organization', array(
             'label'        => 'Organisation',
             'required'     => false,
             'multiOptions' => Utils_User_Organization::getDropdownOptions(),
             'class'        => 'form-control'
-        ));
+        ));*/
         
         // add role select
         $this->addElement('select', 'role', array(
