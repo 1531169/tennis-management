@@ -29,12 +29,12 @@ class Utils_Authentication_Service
         if ($user == null) {
             throw new Exception('No user was given.');
         }
-        $authentication						= new Zend_Session_Namespace('Authentication');
-        $authentication->id				= hash('sha256', $user->user_id);
-        $authentication->username	= $user->username;
-        $authentication->time 			= time();
-        $authentication->role				= $user->role;
-        $authentication->state			= $user->state;
+        $authentication           = new Zend_Session_Namespace('Authentication');
+        $authentication->id       = hash('sha256', $user->user_id);
+        $authentication->username = $user->username;
+        $authentication->time     = time();
+        $authentication->role     = $user->role;
+        $authentication->state    = $user->state;
         self::setAuthentication($authentication);
     }
 
