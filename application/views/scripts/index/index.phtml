@@ -2,3 +2,16 @@
 <div class="row">
 	Dashboard
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+	// https://fabien-d.github.io/alertify.js/
+	// time (in ms) before log message hides
+	// default: 5000
+	alertify.set({ delay: 1500 });
+	// log will hide after 10 seconds
+	alertify.error("Fehlermeldung...");
+	// setting the delay to 0 will leave
+	// the log message until it's clicked
+	alertify.success("Yeah");
+});
+</script>
