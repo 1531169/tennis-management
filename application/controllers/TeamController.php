@@ -22,29 +22,34 @@ class TeamController extends Zend_Controller_Action
     
     public function viewAction()
     {
-        $request = $this->getRequest();
-        $user_id = $request->getParam('userid');
-        $user    = new Application_Model_User();
-        $mapper  = new Application_Model_Usermapper();
+        $request   = $this->getRequest();
+        $user_id   = $request->getParam('userid');
+        $user      = new Application_Model_User();
+        $localUser = new Application_Model_User();
+        $mapper    = new Application_Model_Usermapper();
+        $mapper->findByUsername(Utils_Authentication_Service::getInfo('username'), $localUser);
         $mapper->find($user_id, $user);
-        $this->view->user = $user;
+        $this->view->user      = $user;
+        $this->view->localUser = $localUser;
     }
 
     public function addAction()
     {
         $request = $this->getRequest();
         $form    = new Application_Form_AddUser();
+        $mapper  = new Application_Model_UserMapper();
         $form->setAction('add');
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
                 $user = new Application_Model_User($form->getValues());
-                $mapper = new Application_Model_UserMapper();
                 $mapper->save($user);
                 return $this->_helper->redirector('index');
             }
         }
-        
-        $this->view->form = $form;
+        $localUser = new Application_Model_User();
+        $mapper->findByUsername(Utils_Authentication_Service::getInfo('username'), $localUser);
+        $this->view->localUser = $localUser;
+        $this->view->form      = $form;
     }
     
     public function editAction()

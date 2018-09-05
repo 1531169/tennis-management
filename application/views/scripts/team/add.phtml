@@ -79,12 +79,7 @@
 								style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Organisation</label>
 						</div>
 						<div class="col-sm-12">
-							<?php
-							/*
-							 * TODO: get team of coach => coach only can add player to his own team
-							 */
-							?>
-							<?php echo $this->form->getElement('organization')->setAttrib("readonly", true)->setValue('MyTeam')->removeDecorator('label'); ?>
+							<?php echo $this->form->getElement('organization')->setAttrib("readonly", true)->setValue($this->localUser->getOrganization())->removeDecorator('label'); ?>
 						</div>
 					</div>
 					<div class="form-group row">
