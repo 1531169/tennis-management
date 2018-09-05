@@ -1,7 +1,121 @@
 <br />
 <div class="row">
-	Dashboard
+	<div class="col-sm-8">
+		<div class="chat-panel panel panel-default">
+			<div class="panel-heading">
+				Team&uuml;bersicht
+				<div class="btn-group pull-right">
+					<a style="text-decoration:none;" href="<?php echo $this->url(array('controller'=>'index','action' => 'index'), 'default', true) ?>">
+						<button type="button" class="btn btn-default btn-sm btn-block">
+							<i class="fa fa-edit"></i>
+						</button>
+					</a>
+				</div>
+			</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Vorname</th>
+								<th>Nachname</th>
+								<th>Organisation</th>
+								<th>Rolle</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php $this->users = array(); ?>
+							<?php foreach ($this->users as $user): ?>
+							<tr>
+								<td><?php echo $this->escape($user->user_id) ?></td>
+								<td><?php echo $this->escape($user->givenname) ?></td>
+								<td><?php echo $this->escape($user->surname) ?></td>
+								<td><?php echo $this->escape($user->organization) ?></td>
+								<td><?php echo Utils_User_Role::toString($user->role) ?></td>
+								<td><?php echo Utils_User_State::toString($user->state) ?></td>
+							</tr>
+							<?php endforeach ?>
+						</tbody>
+					</table>
+				</div>
+				<!-- /.table-responsive -->
+			</div>
+			<!-- /.panel-body -->
+			<div class="panel-footer">
+				<div class="input-group">
+					<select class="form-control">
+						<option name="">Karl Reinhard</option>
+						<option name="">Cedric Reinhard</option>
+						<option name="">Jessica Reinhard</option>
+						<option name="">Manfred Wunder</option>
+						<option name="">Robin Brehm</option>
+					</select>
+					<span class="input-group-btn">
+						<button class="btn btn-warning btn-block">Hinzufügen</button>
+					</span>
+				</div>
+			</div>
+			<!-- /.panel-footer -->
+		</div>
+		<!-- /.panel -->
+	</div>
+	<!-- /.col -->
+	<div class="col-sm-4">
+		<div class="panel panel-default"><!-- chat panel makes the panel scrollable -->
+			<div class="panel-heading">
+				Spieler hinzuf&uuml;gen
+				<div class="btn-group pull-right">
+					<a style="text-decoration:none;" href="<?php echo $this->url(array('controller'=>'index','action' => 'index'), 'default', true) ?>">
+						<button type="button" class="btn btn-default btn-sm btn-block">
+							<i class="fa fa-edit"></i>
+						</button>
+					</a>
+				</div>
+			</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+				<div class="table-responsive" style="overflow: hidden">
+					<form action="<?php #echo $this->form->getAction(); ?>"
+						method="<?php #echo $this->form->getMethod(); ?>">
+						<div class="form-group row">
+							<div class="col-sm-4">
+								<label class="col-form-label"
+									style="padding-top: calc(.5rem - 1px * 2); padding-bottom: calc(.5rem - 1px * 2); margin-bottom: 0;">Benutzername</label>
+							</div>
+							<div class="col-sm-8">
+								<input id="btn-input" type="text" class="form-control input-sm" placeholder="Spielernamen..." list="spieler" />
+								<datalist id="spieler">
+									<option value="Karl Reinhard" />
+									<option value="Cedric Reinhard" />
+									<option value="Jessica Reinhard" />
+									<option value="Manfred Wunder" />
+									<option value="Robin Brehm" />
+								</datalist>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-sm-4">
+							</div>
+							<div class="col-sm-8">
+								<span class="input-group-btn">
+									<button class="btn btn-warning btn-sm" id="btn-chat">Hinzufügen</button>
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- /.table-responsive -->
+			</div>
+			<!-- /.panel-body -->
+		</div>
+		<!-- /.panel -->
+	</div>
+	<!-- /.col -->
 </div>
+<!-- /.row -->
 <script type="text/javascript">
 $(document).ready(function() {
 	// https://fabien-d.github.io/alertify.js/
