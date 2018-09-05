@@ -38,7 +38,9 @@
 							<td>
     							<a href="<?php echo $this->url(array('controller'=>'team','action' => 'view', 'userid' => $user->user_id), 'default', true) ?>"><button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-list"></i></button></a>
     							<a href="<?php echo $this->url(array('controller'=>'team','action' => 'edit', 'userid' => $user->user_id), 'default', true) ?>"><button type="button" class="btn btn-warning btn-circle"><i class="fa fa-edit"></i></button></a>
+    							<!-- 
     							<a href="<?php echo $this->url(array('controller'=>'team','action' => 'delete', 'userid' => $user->user_id), 'default', true) ?>"><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button></a>
+    							-->
 							</td>
 						</tr>
 						<?php endforeach ?>
