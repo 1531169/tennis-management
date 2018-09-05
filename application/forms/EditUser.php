@@ -9,11 +9,17 @@ class Application_Form_EditUser extends Zend_Form
 {   
     public function __construct(Application_Model_User $user)
     {
+        // add user id field
+        $this->addElement('hidden', 'user_id', array(
+            'value'	=> $user->getUser_id(),
+            'class'	=> 'form-control'
+        ));
+        
         // add username field
         $this->addElement('text', 'username', array(
             'value'	      => $user->getUsername(),
             'placeholder' => 'Benutzername',
-            'disabled'    => true,
+            'readonly'    => true,
             'required'    => true,
             'filters'     => array(
                 'StringTrim'
