@@ -28,6 +28,16 @@ class UseroverviewController extends Zend_Controller_Action
         $usermapper = new Application_Model_UserMapper();
         $this->view->users = $usermapper->fetchAll();
     }
+    
+    public function viewAction()
+    {
+        $request = $this->getRequest();
+        $user_id = $request->getParam('userid');
+        $user    = new Application_Model_User();
+        $mapper  = new Application_Model_Usermapper();
+        $mapper->find($user_id, $user);
+        $this->view->user = $user;
+    }
 
     public function addAction()
     {
@@ -42,18 +52,7 @@ class UseroverviewController extends Zend_Controller_Action
                 return $this->_helper->redirector('index');
             }
         }
-        
         $this->view->form = $form;
-    }
-
-    public function viewAction()
-    {
-        $request = $this->getRequest();
-        $user_id = $request->getParam('userid');
-        $user    = new Application_Model_User();
-        $mapper  = new Application_Model_Usermapper();
-        $mapper->find($user_id, $user);
-        $this->view->user = $user;
     }
 
     public function editAction()
@@ -65,6 +64,13 @@ class UseroverviewController extends Zend_Controller_Action
         $mapper->find($user_id, $user);
         $form = new Application_Form_EditUser($user);
         $form->setAction('edit');
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $user = new Application_Model_User($form->getValues());
+                $mapper->update($user);
+                return $this->_helper->redirector('index');
+            }
+        }
         $this->view->form = $form;
     }
 
