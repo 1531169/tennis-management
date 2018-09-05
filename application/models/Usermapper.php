@@ -48,6 +48,32 @@ class Application_Model_Usermapper
             ));
         }
     }
+    
+    public function update(Application_Model_User $user) {
+        $data = array(
+            'state'		   => $user->getState(),
+            'role'		   => $user->getRole(),
+            'surname'	   => $user->getSurname(),
+            'givenname'	   => $user->getGivenname(),
+            'gender'	   => $user->getGender(),
+            'username'	   => $user->getUsername(),
+            'email'		   => $user->getEmail(),
+            'email2'	   => $user->getEmail2(),
+            'organization' => $user->getOrganization()
+        );
+        // overwrite password only if changed
+        if(!empty($user->getPassword())) {
+            $data['password'] = SHA1($user->getPassword());
+        }
+        echo "<h1>UserID: " . $user->getUser_id() . "</h1>";
+        if (($id = $user->getUser_id()) !== null) {
+            $this->getDbTable()->update($data, array(
+                'user_id = ?' => $id
+            ));
+            return true;
+        }
+        return false;
+    }
 
     public function find($id, Application_Model_User $user)
     {
