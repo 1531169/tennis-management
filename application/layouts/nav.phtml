@@ -4,20 +4,20 @@
  */
 
 // URLS
-$url_index = $this->url(array('controller'=>'index'), 'default', true);
-$url_index_logout = $this->url(array('controller'=>'index', 'action' => 'logout'), 'default', true);
-$url_profil = $this->url(array('controller'=>'profil'), 'default', true);
-$url_settings = $this->url(array('controller'=>'settings'), 'default', true);
-$url_useroverview = $this->url(array('controller'=>'useroverview'), 'default', true);
+$url_index            = $this->url(array('controller'=>'index'), 'default', true);
+$url_index_logout     = $this->url(array('controller'=>'index', 'action' => 'logout'), 'default', true);
+$url_profil           = $this->url(array('controller'=>'profil'), 'default', true);
+$url_settings         = $this->url(array('controller'=>'settings'), 'default', true);
+$url_useroverview     = $this->url(array('controller'=>'useroverview'), 'default', true);
 $url_useroverview_add = $this->url(array('controller'=>'useroverview','action' => 'add'), 'default', true);
-$url_team = $this->url(array('controller'=>'team'), 'default', true);
-$url_team_add = $this->url(array('controller'=>'team','action' => 'add'), 'default', true);
+$url_team             = $this->url(array('controller'=>'team'), 'default', true);
+$url_team_add         = $this->url(array('controller'=>'team','action' => 'add'), 'default', true);
 
-$url_saison = $this->url(array('controller'=>'saison'), 'default', true);
-$url_saison_view = $this->url(array('controller'=>'saison','action' => 'view'), 'default', true);
-$url_saison_all = $this->url(array('controller'=>'saison','action' => 'all'), 'default', true);
-$url_saison_prepare = $this->url(array('controller'=>'saison','action' => 'prepare'), 'default', true);
-$url_saison_add = $this->url(array('controller'=>'saison','action' => 'add'), 'default', true);
+$url_saison           = $this->url(array('controller'=>'saison'), 'default', true);
+$url_saison_view      = $this->url(array('controller'=>'saison','action' => 'view'), 'default', true);
+$url_saison_all       = $this->url(array('controller'=>'saison','action' => 'all'), 'default', true);
+$url_saison_prepare   = $this->url(array('controller'=>'saison','action' => 'prepare'), 'default', true);
+$url_saison_add       = $this->url(array('controller'=>'saison','action' => 'add'), 'default', true);
 
 $authentication = new Zend_Session_Namespace('Authentication');
 $role = $authentication->role;
