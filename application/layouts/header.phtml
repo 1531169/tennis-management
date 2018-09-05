@@ -8,16 +8,20 @@
 	<meta name="author" content="">
 	<title>Freudenberg Tennis-Management</title>
 	<?php
-		$bootstrap			= $this->baseUrl('vendor/bootstrap/css/bootstrap.min.css');
+		$bootstrap		= $this->baseUrl('vendor/bootstrap/css/bootstrap.min.css');
 		$metisMenu		= $this->baseUrl('vendor/metisMenu/metisMenu.min.css');
 		$sb_admin		= $this->baseUrl('dist/css/sb-admin-2.css');
-		$morris				= $this->baseUrl('vendor/morrisjs/morris.css');
+		$morris			= $this->baseUrl('vendor/morrisjs/morris.css');
 		$fontAwesome	= $this->baseUrl('vendor/font-awesome/css/font-awesome.min.css');
+		$alertifyCore   = $this->baseUrl('dist/css/alertify.core.css');
+		$alertifyDef    = $this->baseUrl('dist/css/alertify.default.css');
 		echo $this->headLink()->appendStylesheet($bootstrap);
 		echo $this->headLink()->appendStylesheet($metisMenu);
 		echo $this->headLink()->appendStylesheet($sb_admin);
 		echo $this->headLink()->appendStylesheet($morris);
 		echo $this->headLink()->appendStylesheet($fontAwesome);
+		echo $this->headLink()->appendStylesheet($alertifyCore);
+		echo $this->headLink()->appendStylesheet($alertifyDef);
 	?>
 	<!-- jQuery Code executes on Date Format option ----->
 	<!-- Bootstrap Core CSS
@@ -40,12 +44,13 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<?php
 		$jQuery		= $this->baseUrl('vendor/jquery/jquery.min.js');
-		$bootstrap		= $this->baseUrl('vendor/bootstrap/js/bootstrap.min.js');
+		$bootstrap	= $this->baseUrl('vendor/bootstrap/js/bootstrap.min.js');
 		$metisMenu	= $this->baseUrl('vendor/metisMenu/metisMenu.min.js');
-		$raphael		= $this->baseUrl('vendor/raphael/raphael.min.js');
-		$morris			= $this->baseUrl('vendor/morrisjs/morris.min.js');
+		$raphael	= $this->baseUrl('vendor/raphael/raphael.min.js');
+		$morris		= $this->baseUrl('vendor/morrisjs/morris.min.js');
 		$morrisData	= $this->baseUrl('data/morris-data.js');
 		$sb_admin	= $this->baseUrl('dist/js/sb-admin-2.js');
+		$alertify	= $this->baseUrl('dist/js/alertify.js');
 	?>
 	<!-- jQuery -->
 	<script src="<?php echo $jQuery; ?>"></script>
@@ -59,6 +64,7 @@
 	<script src="<?php echo $morrisData; ?>"></script>
 	<!-- Custom Theme JavaScript -->
 	<script src="<?php echo $sb_admin; ?>"></script>
+	<script src="<?php echo $alertify; ?>"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
