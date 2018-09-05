@@ -95,6 +95,26 @@ class Application_Model_Usermapper
 			->setOrganization($row->organization);
     }
     
+    public function findByUsername($name, Application_Model_User $user)
+    {
+        $select = $this->getDbTable()
+            ->select()
+            ->where("username = '$name'")
+            ->limit(1);
+        $row = $this->getDbTable()->fetchRow($select);
+        $user->setUser_id($row->user_id)
+            ->setState($row->state)
+            ->setRole($row->role)
+            ->setSurname($row->surname)
+            ->setGivenname($row->givenname)
+            ->setGender($row->gender)
+            ->setUsername($row->username)
+            ->setPassword($row->password)
+            ->setEmail($row->email)
+            ->setEmail2($row->email2)
+            ->setOrganization($row->organization);
+    }
+    
     public function fetchAll()
     {
         $resultSet = $this->getDbTable()->fetchAll();
@@ -117,11 +137,10 @@ class Application_Model_Usermapper
         return $entries;
     }
     
-    /*
-     * TODO: Anpassen für die Suchen nach dem Team 
-     */
-    public function fetchAllFromTeam() {
-        $select = $this->getDbTable()->select()->where('user_id < 3');
+    public function fetchAllFromTeam($organization) {
+        $select = $this->getDbTable()
+            ->select()
+            ->where("organization = '$organization'");
         $resultSet = $this->getDbTable()->fetchAll($select);
         foreach($resultSet as $row) {
             $entry = new Application_Model_User();

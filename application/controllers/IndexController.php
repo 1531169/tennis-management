@@ -8,15 +8,15 @@ class IndexController extends Zend_Controller_Action
     {
         Utils_Authentication_Service::redirectIfNotAuthenticated();
 		
-		$this->_role = Utils_Authentication_Service::getInfo('role');
+		$this->_role      = Utils_Authentication_Service::getInfo('role');
         $this->view->role = $this->_role;
     }
 
     public function indexAction()
     {
-        $user = new Application_Model_User();
+        $user       = new Application_Model_User();
         $usermapper = new Application_Model_Usermapper();
-        $usermapper->find(1, $user);
+        $usermapper->findByUsername(Utils_Authentication_Service::getInfo('username'), $user);
     }
 
     public function logoutAction()
