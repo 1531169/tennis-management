@@ -4,9 +4,11 @@ class SaisonController extends Zend_Controller_Action
 {
     const PATH = '/tennis-management/public/saison/';
     
-    const MSG_ERROR_YEAR_DIFF       = 'Saison (Jahr von...) muss kleiner sein als Saison (Jahr bis...).';
-    const MSG_ERROR_PLAN_EXISTS     = 'Der Plan der angegebenen Saison existiert bereits!';
-    const MSG_SUCCESS_PLAN_CREATED  = 'Der Saisonplan wurde erfolgreich angelegt.';
+    const MSG_ERROR_YEAR_DIFF        = 'Saison (Jahr von...) muss kleiner sein als Saison (Jahr bis...).';
+    const MSG_ERROR_PLAN_NOT_CREATED = "Es wurde kein Plan gefunden.";
+    const MSG_ERROR_NO_PLANS         = "Aktuell sind keine Saisonpl&auml;ne vorhanden.";
+    const MSG_ERROR_PLAN_EXISTS      = 'Der Plan der angegebenen Saison existiert bereits!';
+    const MSG_SUCCESS_PLAN_CREATED   = 'Der Saisonplan wurde erfolgreich angelegt.';
     
     protected $_dangerMsgHidden = null;
     protected $_dangerMsgShown  = null;
@@ -85,7 +87,7 @@ class SaisonController extends Zend_Controller_Action
                     // no plan found => show message
                     $notFound = true;
                     $this->view->dangerMsgState	= $this->_dangerMsgShown;
-                    $this->view->dangerMsg		= "Es wurde kein Plan gefunden.";
+                    $this->view->dangerMsg		= self::MSG_ERROR_PLAN_NOT_CREATED;
                 } else {
                     $planDays = $spieltagMapper->fetchAllByPlanId($plan->getSpielplan_id());
                 }
@@ -101,7 +103,7 @@ class SaisonController extends Zend_Controller_Action
                 // no plan found => show message
                 $notFound = true;
                 $this->view->dangerMsgState	= $this->_dangerMsgShown;
-                $this->view->dangerMsg		= "Aktuell sind keine Saisonpl&auml;ne vorhanden.";
+                $this->view->dangerMsg		= self::MSG_ERROR_NOT_PLANS;
             } else {
                 $planDays = $spieltagMapper->fetchAllByPlanId($plan->getSpielplan_id());
             }
@@ -197,7 +199,6 @@ class SaisonController extends Zend_Controller_Action
                     $tage[] = $spieltag;
                 }
                 $spieltagMapper->saveAll($tage);
-                // TODO: move messages into const
                 $this->view->successMsgState = $this->_successMsgShown;
                 $this->view->successMsg		 = $this->_successMsg;
             }
@@ -223,7 +224,7 @@ class SaisonController extends Zend_Controller_Action
                     // no plan found => show message
                     $notFound = true;
                     $this->view->dangerMsgState	= $this->_dangerMsgShown;
-                    $this->view->dangerMsg		= "Es wurde kein Plan gefunden.";
+                    $this->view->dangerMsg		= self::MSG_ERROR_PLAN_NOT_CREATED;
                 } else {
                     $planDays = $spieltagMapper->fetchAllByPlanId($plan->getSpielplan_id());
                     $this->editPlanHandleForm($plan, $planDays, $spieltagMapper);
@@ -240,7 +241,7 @@ class SaisonController extends Zend_Controller_Action
                 // no plan found => show message
                 $notFound = true;
                 $this->view->dangerMsgState	= $this->_dangerMsgShown;
-                $this->view->dangerMsg		= "Aktuell sind keine Saisonpl&auml;ne vorhanden.";
+                $this->view->dangerMsg		= self::MSG_ERROR_NO_PLANS;
             } else {
                 $this->editPlanHandleForm($plan, $planDays, $spieltagMapper);
             }
