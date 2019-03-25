@@ -89,8 +89,10 @@ if($role == 'admin') {
 					<li><a class="text-center" href="#"> <strong>Read All Messages</strong>
 							<i class="fa fa-angle-right"></i>
 					</a></li>
-				</ul> <!-- /.dropdown-messages --></li>
-			<!-- /.dropdown -->
+				</ul>
+			</li>
+			<!-- /.dropdown messages -->
+			<!--
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 					<i class="fa fa-tasks fa-fw"></i>
@@ -161,11 +163,14 @@ if($role == 'admin') {
 							</div>
 					</a></li>
 					<li class="divider"></li>
-					<li><a class="text-center" href="#"> <strong>See All Tasks</strong>
-							<i class="fa fa-angle-right"></i>
-					</a></li>
-				</ul> <!-- /.dropdown-tasks --></li>
-			<!-- /.dropdown -->
+					<li>
+						<a class="text-center" href="#"><strong>See All Tasks</strong><i class="fa fa-angle-right"></i></a>
+					</li>
+				</ul>
+			</li>
+			-->
+			<!-- /.dropdown tasks -->
+			<!--
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 					<i class="fa fa-bell fa-fw"></i>
@@ -210,8 +215,10 @@ if($role == 'admin') {
 					<li><a class="text-center" href="#"> <strong>See All Alerts</strong>
 							<i class="fa fa-angle-right"></i>
 					</a></li>
-				</ul> <!-- /.dropdown-alerts --></li>
-			<!-- /.dropdown -->
+				</ul>
+			</li>
+			-->
+			<!-- /.dropdown informations -->
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 					<i class="fa fa-user fa-fw"></i>
@@ -224,32 +231,21 @@ if($role == 'admin') {
 					<li class="divider"></li>
 					<li><a href="<?php echo $url_index_logout; ?>"><i class="fa fa-sign-out fa-fw"></i>
 							Abmelden</a></li>
-				</ul> <!-- /.dropdown-user -->
+				</ul>
+				
 			</li>
-			<!-- /.dropdown -->
+			<!-- /.dropdown-user -->
 		</ul>
 		<!-- /.navbar-top-links -->
-
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
 					<li class="sidebar-search">
+						<!-- /input-group -->
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Suchen...">
-								<button class="btn btn-default btn-block" type="button">
-									<i class="fa fa-search"></i>
-								</button>
-						</div> <!-- /input-group -->
-						<div class="input-group">
-							<select class="form-control">
-								<option name="">Karl Reinhard</option>
-								<option name="">Cedric Reinhard</option>
-								<option name="">Jessica Reinhard</option>
-								<option name="">Manfred Wunder</option>
-								<option name="">Robin Brehm</option>
-							</select>
 							<span class="input-group-btn">
-								<button class="btn btn-warning"><i class="fa fa-search"></i></button>
+								<button id="my-btn-search" class="btn btn-warning"><i class="fa fa-search"></i></button>
 							</span>
 						</div>
 					</li>
