@@ -1,5 +1,5 @@
 <?php
-define('APPLICATION_ENV', 'development');
+define('APPLICATION_ENV', 'production');
 
 // Define path to application directory
 defined('APPLICATION_PATH')

@@ -28,3 +28,22 @@ The following is a sample VHOST you might want to consider for your project.
    </Directory>
 
 </VirtualHost>
+
+
+On a server where you can't create VirtualHost configuration use:
+
+http://forums.zend.com/viewtopic.php?t=84838#p166908
+
+it says:
+create a .htaccess file in the root directory (parent folder of public) and put this code in:
+
+RewriteEngine On 
+RewriteRule ^\.htaccess$ - [F] 
+RewriteCond %{REQUEST_URI} =""
+RewriteRule ^.*$ /public/index.php [NC,L] 
+RewriteCond %{REQUEST_URI} !^/public/.*$
+RewriteRule ^(.*)$ /public/$1 
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^.*$ - [NC,L] 
+RewriteRule ^public/.*$ /public/index.php [NC,L]
+

@@ -2,7 +2,6 @@
 
 class UseroverviewController extends Zend_Controller_Action
 {
-
     protected $_role;
 
     public function init()
@@ -14,6 +13,14 @@ class UseroverviewController extends Zend_Controller_Action
 		
         // TODO: muss in jedem Controller implementiert werden!
         $this->checkAccess();
+
+        // handle editing of an user
+        $request = $this->getRequest();
+        if($request) {
+            if(Utils_TokenManager::isTokenValid($request->getParam('token'))) {
+                $this->view->message = "Die Aktion wurde erfolgreich durchgeführt.";
+            }
+        }
     }
 
     public function checkAccess()
@@ -25,7 +32,7 @@ class UseroverviewController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $usermapper = new Application_Model_UserMapper();
+        $usermapper = new Application_Model_Usermapper();
         $this->view->users = $usermapper->fetchAll();
     }
     
@@ -47,7 +54,7 @@ class UseroverviewController extends Zend_Controller_Action
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
                 $user = new Application_Model_User($form->getValues());
-                $mapper = new Application_Model_UserMapper();
+                $mapper = new Application_Model_Usermapper();
                 $mapper->save($user);
                 return $this->_helper->redirector('index');
             }
@@ -68,14 +75,15 @@ class UseroverviewController extends Zend_Controller_Action
             if ($form->isValid($request->getPost())) {
                 $user = new Application_Model_User($form->getValues());
                 $mapper->update($user);
-                return $this->_helper->redirector('index');
+                return $this->_helper->_redirector->gotoSimple('index', 'useroverview', null, array(
+                    'token' => Utils_TokenManager::getToken()
+                ));
             }
         }
         $this->view->form = $form;
     }
 
-    public function deleteAction()
-    {
+    public function deleteAction() {
         $request = $this->getRequest();
         $user_id = $request->getParam('userid');
         $user = new Application_Model_User();

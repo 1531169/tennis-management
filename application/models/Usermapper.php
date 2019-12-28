@@ -41,9 +41,9 @@ class Application_Model_Usermapper
         );
         if (($id = $user->getUser_id()) === null) {
             unset($data['user_id']);
-            $this->getDbTable()->insert($data);
+            return $this->getDbTable()->insert($data);
         } else {
-            $this->getDbTable()->update($data, array(
+            return $this->getDbTable()->update($data, array(
                 'user_id = ?' => $id
             ));
         }
@@ -113,6 +113,18 @@ class Application_Model_Usermapper
             ->setEmail($row->email)
             ->setEmail2($row->email2)
             ->setOrganization($row->organization);
+    }
+
+    public function countByUsernameAndMail(Application_Model_User $user)
+    {
+        $select = $this->getDbTable()
+            ->select()
+            ->from($this->_dbTable, array('COUNT(*) as Anzahl'))
+            ->where("username = '$user->username' OR email = '$user->email'")
+            ->limit(1);
+        $row = $this->getDbTable()->fetchRow($select);
+        print_r($row->Anzahl);
+        return $row->Anzahl;
     }
     
     public function fetchAll()

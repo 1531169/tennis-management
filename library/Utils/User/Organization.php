@@ -44,7 +44,7 @@ class Utils_User_Organization
     }
     
     private static function getOrganizationArray() {
-        $mapper = new Application_Model_UserMapper();
+        $mapper = new Application_Model_Usermapper();
         $sql    = $mapper->getDbTable()
         ->select()
         ->distinct()

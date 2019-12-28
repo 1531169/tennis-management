@@ -50,3 +50,16 @@
 	</div>
 	<!-- /.panel -->
 </div>
+<?php
+// start script
+if($this->message) {
+?>
+<script type="text/javascript">
+$(document).ready(function() {
+	alertify.set({ delay: 3000 });
+	alertify.success('<?= $this->message ?>');
+});
+</script>
+<?php
+} // end script
+?>

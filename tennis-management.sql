@@ -19,10 +19,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `tennis-management`
+-- Datenbank: `dbs32381`
 --
-CREATE DATABASE IF NOT EXISTS `tennis-management` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `tennis-management`;
+CREATE DATABASE IF NOT EXISTS `dbs32381` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 
 -- --------------------------------------------------------
 

@@ -37,13 +37,21 @@ class TeamController extends Zend_Controller_Action
     {
         $request = $this->getRequest();
         $form    = new Application_Form_AddUser();
-        $mapper  = new Application_Model_UserMapper();
+        $mapper  = new Application_Model_Usermapper();
         $form->setAction('add');
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
-                $user = new Application_Model_User($form->getValues());
-                $mapper->save($user);
-                return $this->_helper->redirector('index');
+                $user  = new Application_Model_User($form->getValues());
+                // check whether the user already exist
+                if ($mapper->countByUsernameAndMail($user) <= 0) {
+                    $mapper->save($user);
+                    return $this->_helper->_redirector->gotoSimple('index', 'team', null, array(
+                        'token' => Utils_TokenManager::getToken()
+                    ));
+                } else {
+                    echo "Error Handling";
+                    // TODO: error handling
+                }
             }
         }
         $localUser = new Application_Model_User();
